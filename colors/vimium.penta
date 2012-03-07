@@ -1,0 +1,42 @@
+":--------------------------:
+"| Pentadactyl color scheme |
+":--------------------------:
+
+" Statusline {{{
+style -name=yourUglyStatusline * #dactyl-statusline-field-container { padding-left: 2px; }
+style -name=yourUglyStatuslineMozSelection * #dactyl-statusline-field-container *::-moz-selection { background: rgba(0,0,0,0.2); }
+style -name=yourUglyStatuslineChildren * #dactyl-statusline-field-container * { text-shadow: 1px 1px 0px rgba(255,255,255,0.3); font-family: "Helvetica Neue", "Helvetica", "Arial", "Sans"; font-size: 11px; font-weight: normal; }
+style -name=yourUglyStatuslineZoomLevel * #dactyl-statusline-field-container #dactyl-statusline-field-zoomlevel { display: none; }
+style -name=yourUglyStatuslineBufferPosition * #dactyl-statusline-field-container #dactyl-statusline-field-bufferposition { display: none; }
+style -name=yourUglyStatuslineTabCount * #dactyl-statusline-field-container #dactyl-statusline-field-tabcount { display: none; }
+style -name=yourUglyStatuslineProgress * #dactyl-statusline-field-container #dactyl-statusline-field-progress { display: none; }
+hi StatusLine         background: WindowFrame; font-size: 100%; font-family: "Helvetica Neue", "Helvetica", "Arial", "Sans"; color: black; padding: 0px 2px;
+hi StatusLineNormal   background: WindowFrame; font-size: 100%; font-family: "Helvetica Neue", "Helvetica", "Arial", "Sans"; color: black; padding: 0px 2px;
+hi StatusLineBroken   color: Black;
+hi StatusLineSecure   color: Black;
+" }}}
+" Command-line [light] {{{
+"hi Normal             font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
+"hi CmdLine            font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
+" }}}
+" Command-line [dark] {{{
+hi Normal             background-color: #FFF; color: black; font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
+hi CmdLine            font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
+" }}}
+" Completion {{{
+hi CompDesc           -a padding-left: 10px;
+hi CompIcon           -a display: none;
+hi CompItem[selected] -a background: #FFC542 !important;
+hi CompTitle          -a text-transform: uppercase; background: -moz-linear-gradient(top, #FFF785, #FFC542); font-size: 11px; padding: 1px 3px 0px 3px; font-family : "Helvetica Neue", "Helvetica", "Arial", "Sans"; font-weight: bold; color: #302505;
+hi CompTitleSep       -a background: #C38A22;
+" }}}
+" Hints {{{
+hi Hint               text-transform: uppercase; font-family : "Helvetica Neue", "Helvetica", "Arial", "Sans"; font-weight: bold; font-size: 11px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); color: #302505; padding: 1px 3px 0px 3px; background: -moz-linear-gradient(top, #FFF785, #FFC542); border: 1px #C38A22 solid; -moz-border-radius: 3px; -moz-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
+hi HintElem           background-color: inherit !important
+hi HintActive	      background-color: inherit !important
+hi HintImage          opacity: .5 !important;
+" }}}
+" Messages {{{
+hi ErrorMsg           background: #a00 !important; color: #fff !important; font: 11px "Menlo" !important; padding: 2px 4px !important;
+hi WarningMsg         background: #a00 !important; color: #fff !important; font: 11px "Menlo" !important; padding: 2px 4px !important;
+" }}}

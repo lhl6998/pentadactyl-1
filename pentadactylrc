@@ -1,0 +1,64 @@
+set runtimepath=$HOME/.pentadactyl
+
+set titlestring=Mozilla\ Firefox
+set complete=ls
+set guioptions=BTbr
+set editor=vim
+" only follow hints when press enter
+set followhints=1
+set hintkeys=sadfjklewcmpgh
+ " show link when hover links
+set showstatuslinks=command
+" open things at new tab
+set newtab=all
+" only show the tab bar when there are multiple tabs
+"set showtabline=multitab
+
+"Searching: use DuckDuckGo
+"initialisation: bmark -title='DuckDuckGo' https://duckduckgo.com/?q=%s -keyword=ddg
+set defsearch=ddg
+
+colorscheme vimium
+" Hints {{{
+"hi Hint               text-transform: uppercase; font-family : "Helvetica Neue", "Helvetica", "Arial", "Sans"; font-weight: bold; font-size: 11px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); color: #302505; padding: 1px 3px 0px 3px; background: -moz-linear-gradient(top, #FFF785, #FFC542); border: 1px #C38A22 solid; -moz-border-radius: 3px; -moz-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
+"hi HintElem           background-color: inherit !important
+"hi HintActive	      background-color: inherit !important
+"hi HintImage          opacity: .5 !important;
+" }}}
+
+set mapleader=','
+
+" Searching
+" highlight the terms
+set hlfind
+" find as you type
+set incfind
+set findcase=ignore
+map <Leader>/ :set hlf!<CR>
+
+nmap a <Nop>
+nmap b <Nop>
+nmap d <Nop>
+nmap u <Nop>
+nmap w <Nop>
+
+" move
+nnoremap u 10k
+nnoremap d 10j
+nnoremap j 3j
+nnoremap k 3k
+
+nnoremap J :tabprevious<CR>
+nnoremap K :tabnext<CR>
+nnoremap x :quit<CR>
+nnoremap X :undo<CR>
+nnoremap b :bmarks <Space>
+
+"" private mode
+nnoremap <Leader>p :set private!<CR>
+
+"" display download
+nnoremap <Leader>d :downloads<CR>
+
+map <Leader>l :ls<CR>
+map <Leader>b :buffer #<CR>
