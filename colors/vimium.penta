@@ -15,11 +15,7 @@ hi StatusLineNormal   background: WindowFrame; font-size: 100%; font-family: "He
 hi StatusLineBroken   color: Black;
 hi StatusLineSecure   color: Black;
 " }}}
-" Command-line [light] {{{
-"hi Normal             font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
-"hi CmdLine            font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
-" }}}
-" Command-line [dark] {{{
+" Command-line {{{
 hi Normal             background-color: #FFF; color: black; font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
 hi CmdLine            font-family: "Lucida Grande", "Arial", "Sans"; font-size: 12px;
 " }}}
