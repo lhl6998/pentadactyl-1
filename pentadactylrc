@@ -46,7 +46,6 @@ nnoremap J :tabprevious<CR>
 nnoremap K :tabnext<CR>
 nnoremap x :quit<CR>
 nnoremap X :undo<CR>
-nnoremap b :bmarks <Space>
 
 "" private mode
 nnoremap <Leader>p :set private!<CR>
@@ -55,4 +54,4 @@ nnoremap <Leader>p :set private!<CR>
 nnoremap <Leader>d :downloads<CR>
 
 map <Leader>l :ls<CR>
-map <Leader>b :buffer #<CR>
+map <Leader>b :bmarks <Space>
