@@ -87,11 +87,12 @@ noremap <silent> <leader>g :set guioptions=CBTbr<CR>
 noremap <silent> <leader>G :set guioptions=Csb<CR>
 
 " temporary workaround for copy paste in text boxes
-" https://code.google.com/p/dactyl/issues/detail?id=517
-inoremap <C-a> <pass>
-inoremap <C-c> <pass>
-inoremap <C-v> <pass>
-inoremap <C-x> <pass>
+" http://www.slimeden.com/2011/03/firefox/pentadactyl
+map -m n,v,i,c,t <C-a> <Pass>
+map -m n,v,i,c,t <C-c> <Pass>
+map -m i,c,t <C-v> <Pass>
+map -m i,c,t <C-x> <Pass>
+map -m i,c,t <C-z> <Pass>
 "" }}}
 "" {{{ Searching
 "" from http://www.slimeden.com/2011/03/firefox/pentadactyl
