@@ -91,7 +91,7 @@ nnoremap <Leader>u :undo<Space>
 noremap <silent> <leader>g :set guioptions=CBTbr<CR>
 noremap <silent> <leader>G :set guioptions=Csb<CR>
 
-" workaround for copy/paste/select
+" temporary workaround for copy paste in text boxes
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
 map -m n,v,i,c,t <C-a> <Pass>
 map -m n,v,i,c,t <C-c> <Pass>
