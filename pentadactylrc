@@ -91,14 +91,14 @@ nnoremap <Leader>u :undo<Space>
 noremap <silent> <leader>g :set guioptions=CBTbr<CR>
 noremap <silent> <leader>G :set guioptions=Csb<CR>
 
-" temporary workaround for copy paste in text boxes
+" workaround for copy/paste/select
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
-map <C-a> <Pass>
-map <C-c> <Pass>
-map <C-l> <Pass>
-map <C-p> <Pass>
-map <C-v> <Pass>
-map <C-x> <Pass>
+map -m n,v,i,c,t <C-a> <Pass>
+map -m n,v,i,c,t <C-c> <Pass>
+map -m n,v,i,c,t <C-l> <Pass>
+map -m n,v,i,c,t <C-p> <Pass>
+map -m n,v,i,c,t <C-v> <Pass>
+map -m n,v,i,c,t <C-x> <Pass>
 "" }}}
 "" {{{ Searching
 "" from http://www.slimeden.com/2011/03/firefox/pentadactyl
