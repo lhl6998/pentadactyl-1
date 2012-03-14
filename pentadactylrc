@@ -23,6 +23,7 @@ set newtab=all
 
 " set wild mode to show completions as you type
 "set wildmode="list:full"
+set wildmode=list:longest,full
 
 " allow popups popup
 "set popups=tab,resized
@@ -40,11 +41,15 @@ set incfind
 set findcase=smart
 
 " turn off the freakin' bell
+set visualbell
 hi Bell display: none;
+
+" don't show autocomplete list until <Tab>
+set autocomplete=
 
 colorscheme vimium
 "" }}}
-"" {{{ Mapping
+"" {{{ Mapping [vimium++]
 set mapleader=','
 " unset maps
 nmap w <Nop>
@@ -80,7 +85,7 @@ nnoremap <Leader>d :downloads<CR>
 nnoremap <Leader>R :rehash<CR>
 
 "" U list closed tabs
-nnoremap U :undo<Space>
+nnoremap <Leader>u :undo<Space>
 
 " bring back/hide portions of the GUI
 noremap <silent> <leader>g :set guioptions=CBTbr<CR>
@@ -88,11 +93,11 @@ noremap <silent> <leader>G :set guioptions=Csb<CR>
 
 " temporary workaround for copy paste in text boxes
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
-map -m n,v,i,c,t <C-a> <Pass>
-map -m n,v,i,c,t <C-c> <Pass>
-map -m n,v,i,c,t <C-v> <Pass>
-map -m n,v,i,c,t <C-x> <Pass>
-map -m n,v,i,c,t <C-p> <Pass>
+map <C-a> <Pass>
+map <C-c> <Pass>
+map <C-v> <Pass>
+map <C-x> <Pass>
+map <C-p> <Pass>
 "" }}}
 "" {{{ Searching
 "" from http://www.slimeden.com/2011/03/firefox/pentadactyl
@@ -188,7 +193,24 @@ command! fresh -description "Reload .pentadactylrc file" source $HOME/.pentadact
 
 "" set title to url
 "autocmd! LocationChange .* :set titlestring=<url>
+"" }}}
+"" {{{ Passkeys
 
 "" enable pass through mode on all google sites
-autocmd LocationChange www.google.com,mail.google.com :normal! <C-z>
+"autocmd LocationChange www.google.com,mail.google.com :normal! <C-z>
+
+set passkeys=
+
+" DuckDuckGo
+set passkeys+="https://duckduckgo\.com/":jkv
+
+" Gmail
+set passkeys+="https://mail\.google\.com/":jkg
+
+" Google Calendar
+set passkeys+="https://www\.google\.com/calendar":jkg12345qrcnp
+
+" Twitter
+set passkeys+="https://twitter\.com/":jkg/?.nrm
 "" }}}
+" vim: set ft=vim
