@@ -49,7 +49,7 @@ set autocomplete=
 
 colorscheme vimium
 "" }}}
-"" {{{ Mapping [vimium++]
+"" {{{ Mapping [vimium]
 set mapleader=','
 " unset maps
 nmap w <Nop>
@@ -95,9 +95,10 @@ noremap <silent> <leader>G :set guioptions=Csb<CR>
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
 map <C-a> <Pass>
 map <C-c> <Pass>
+map <C-l> <Pass>
+map <C-p> <Pass>
 map <C-v> <Pass>
 map <C-x> <Pass>
-map <C-p> <Pass>
 "" }}}
 "" {{{ Searching
 "" from http://www.slimeden.com/2011/03/firefox/pentadactyl
@@ -195,7 +196,6 @@ command! fresh -description "Reload .pentadactylrc file" source $HOME/.pentadact
 "autocmd! LocationChange .* :set titlestring=<url>
 "" }}}
 "" {{{ Passkeys
-
 "" enable pass through mode on all google sites
 "autocmd LocationChange www.google.com,mail.google.com :normal! <C-z>
 
