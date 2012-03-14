@@ -16,7 +16,7 @@ set hintkeys='sadfjklewcmpgh'
 set followhints=1
 
 " Show destination links in 1=status line, 2=command line
-set showstatuslinks=command
+"set showstatuslinks=command
 
 " open things at new tab
 set newtab=all
@@ -90,9 +90,9 @@ noremap <silent> <leader>G :set guioptions=Csb<CR>
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
 map -m n,v,i,c,t <C-a> <Pass>
 map -m n,v,i,c,t <C-c> <Pass>
-map -m i,c,t <C-v> <Pass>
-map -m i,c,t <C-x> <Pass>
-map -m i,c,t <C-z> <Pass>
+map -m n,v,i,c,t <C-v> <Pass>
+map -m n,v,i,c,t <C-x> <Pass>
+map -m n,v,i,c,t <C-p> <Pass>
 "" }}}
 "" {{{ Searching
 "" from http://www.slimeden.com/2011/03/firefox/pentadactyl
