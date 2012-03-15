@@ -22,7 +22,7 @@ set followhints=1
 set newtab=all
 
 " set wild mode to show completions as you type
-"set wildmode="list:full"
+"set wildmode=list:full
 set wildmode=list:longest,full
 
 " allow popups popup
@@ -41,11 +41,11 @@ set incfind
 set findcase=smart
 
 " turn off the freakin' bell
-set visualbell
-hi Bell display: none;
+set noerrorbells
+set novisualbell
 
 " don't show autocomplete list until <Tab>
-set autocomplete=
+"set autocomplete=
 
 colorscheme vimium
 "" }}}
@@ -91,7 +91,7 @@ nnoremap <Leader>u :undo<Space>
 noremap <silent> <leader>g :set guioptions=CBTbr<CR>
 noremap <silent> <leader>G :set guioptions=Csb<CR>
 
-" temporary workaround for copy paste in text boxes
+" workaround for copy paste in text boxes
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
 map -m n,v,i,c,t <C-a> <Pass>
 map -m n,v,i,c,t <C-c> <Pass>
