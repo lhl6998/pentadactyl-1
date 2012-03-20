@@ -37,7 +37,7 @@ var INFO =
  *
 */
 
-commands.addUserCommand(["googl", "gg"], "Goo.gl an url and copy it to clipboard", function (args) {
+group.commands.add(["googl", "gg"], "Goo.gl an url and copy it to clipboard", function (args) {
 
     var url, post_data, req_url, json_resp, httpPost;
 
@@ -78,17 +78,17 @@ commands.addUserCommand(["googl", "gg"], "Goo.gl an url and copy it to clipboard
             return xmlhttp;
         }
         catch (e) {
-            liberator.echo("Error opening " + url + ": " + e, 1);
+            dactyl.echo("Error opening " + url + ": " + e, 1);
         }
     };
 
-    // for some reason util.copyToClipboard is undefined so hack away
+    // for some reason dactyl.clipboardWrite is undefined so hack away
     var copyToClipboard = function (str, verbose) {
         const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
         clipboardHelper.copyString(str);
 
         if (verbose) {
-            liberator.echo("Yanked " + str, commandline.FORCE_SINGLELINE);
+            dactyl.echo("Yanked " + str, commandline.FORCE_SINGLELINE);
         }
     };
 
@@ -111,7 +111,7 @@ commands.addUserCommand(["googl", "gg"], "Goo.gl an url and copy it to clipboard
             copyToClipboard('harding', true);
             copyToClipboard(json_resp.short_url, true);
         } else {
-            liberator.echo("Error contacting goo.gl!\n");
+            dactyl.echo("Error contacting goo.gl!\n");
         }
     });
 });
