@@ -51,52 +51,53 @@ set novisualbell
 colorscheme vimium
 "" }}}
 "" {{{ Mapping [vimium]
-set mapleader=','
+map , <Leader>
+
 " unset maps
 nmap w <Nop>
 nmap d <Nop>
 nmap u <Nop>
 
 " auto add -tags option when adding bookmark
-nnoremap a a<Space>-tags<Space>
+nmap a a<Space>-tags<Space>
 
 " move
-nnoremap u 10k
-nnoremap d 10j
-nnoremap j 3j
-nnoremap k 3k
+nmap u 10k
+nmap d 10j
+nmap j 3j
+nmap k 3k
 
-nnoremap J :tabprevious<CR>
-nnoremap K :tabnext<CR>
-nnoremap x :quit<CR>
-nnoremap X :undo<CR>
+nmap J :tabprevious<CR>
+nmap K :tabnext<CR>
+nmap x :quit<CR>
+nmap X :undo<CR>
 
 map <Leader>/ :set hlf!<CR>
 
 " open addons manager
-nnoremap <Leader>a :dialog addons<CR>
+nmap <Leader>a :dialog addons<CR>
 
 " private mode
-nnoremap <Leader>p :set private!<CR>
+nmap <Leader>p :set private!<CR>
 
 " display download
-nnoremap <Leader>d :downloads<CR>
+nmap <Leader>d :downloads<CR>
 
 " rehash
-nnoremap <Leader>R :rehash<CR>
+nmap <Leader>R :rehash<CR>
 
 "" U list closed tabs
-nnoremap <Leader>u :undo<Space>
+nmap <Leader>u :undo<Space>
 
 " bring back/hide portions of the GUI
-noremap <silent> <leader>g :set guioptions=CBTbr<CR>
-noremap <silent> <leader>G :set guioptions=Csb<CR>
+map <silent> <leader>g :set guioptions=CBTbr<CR>
+map <silent> <leader>G :set guioptions=Csb<CR>
 
 " copy links
-noremap cd :copy titleAndURL<CR>
-noremap ca :copy anchor<CR>
-noremap cs :copy selanchor<CR>
-noremap cb :copy htmlblockquote<CR>
+map cd :copy titleAndURL<CR>
+map ca :copy anchor<CR>
+map cs :copy selanchor<CR>
+map cb :copy htmlblockquote<CR>
 
 " workaround for copy paste in text boxes
 " http://www.slimeden.com/2011/03/firefox/pentadactyl
@@ -124,8 +125,8 @@ map -m n,v,i,c,t <C-x> <Pass>
 "silent bma -title='Router' http://192.168.1.1 -k=router
 "" }}}
 "" {{{ Bookmarklet
-nnoremap <Leader>b :bml-
-nnoremap <Leader>s :bml-subscribe<CR>
+nmap <Leader>b :bml-
+nmap <Leader>s :bml-subscribe<CR>
 
 "http://getfirebug.com/firebuglite
 command! bml-firebug -description "Bookmarklet: Open Firebug" open javascript:(function(F,i,r,e,b,u,g,L,I,T,E){if(F.getElementById(b))return;E=F[i+'NS']&&F.documentElement.namespaceURI;E=E?F[i+'NS'](E,'script'):F[i]('script');E[r]('id',b);E[r]('src',I+g+T);E[r](b,u);(F[e]('head')[0]||F[e]('body'
@@ -186,7 +187,7 @@ if (buffer.URL.spec.indexOf('#') >= 0) {
     dactyl.open(buffer.URL.spec);
 }
 EOF
-nnoremap r :smartReload<CR>
+nmap r :smartReload<CR>
 
 command! smartReader -js <<EOF
 if (typeof __readable_by_evernote === "object") {
@@ -199,7 +200,7 @@ if (typeof __readable_by_evernote === "object") {
     dactyl.execute("bml-readability");
 }
 EOF
-nnoremap <Leader>r :smartReader<CR>
+nmap <Leader>r :smartReader<CR>
 
 "" reload .pentadactylrc
 command! fresh -description "Reload .pentadactylrc file" source $HOME/.pentadactylrc
