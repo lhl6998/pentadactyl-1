@@ -62,10 +62,8 @@ nmap u <Nop>
 nmap a a<Space>-tags<Space>
 
 " move
-nmap u 10k
-nmap d 10j
-nmap j 3j
-nmap k 3k
+nmap d <C-d>
+nmap u <C-u>
 
 nmap J :tabprevious<CR>
 nmap K :tabnext<CR>
