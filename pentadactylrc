@@ -65,12 +65,18 @@ nmap a a<Space>-tags<Space>
 nmap d <C-d>
 nmap u <C-u>
 
+nmap j 3<Down>
+nmap k 3<Up>
+
 nmap J :tabprevious<CR>
 nmap K :tabnext<CR>
 nmap x :quit<CR>
 nmap X :undo<CR>
 
 map <Leader>/ :set hlf!<CR>
+
+" Yank selected text to clipboard
+map -modes=n Y <yank-selection>
 
 " open addons manager
 nmap <Leader>a :dialog addons<CR>
@@ -81,24 +87,10 @@ nmap <Leader>p :set private!<CR>
 " display download
 nmap <Leader>d :downloads<CR>
 
-" rehash
-nmap <Leader>R :rehash<CR>
-
 "" U list closed tabs
 nmap <Leader>u :undo<Space>
 
-" bring back/hide portions of the GUI
-map <silent> <leader>g :set guioptions=CBTbr<CR>
-map <silent> <leader>G :set guioptions=Csb<CR>
-
-" copy links
-map cd :copy titleAndURL<CR>
-map ca :copy anchor<CR>
-map cs :copy selanchor<CR>
-map cb :copy htmlblockquote<CR>
-
 " workaround for copy paste in text boxes
-" http://www.slimeden.com/2011/03/firefox/pentadactyl
 map -m n,v,i,c,t <C-a> <Pass>
 map -m n,v,i,c,t <C-c> <Pass>
 map -m n,v,i,c,t <C-l> <Pass>
@@ -187,6 +179,18 @@ if (buffer.URL.spec.indexOf('#') >= 0) {
 EOF
 nmap r :smartReload<CR>
 
+command! smartLayoutClean -js <<EOF
+    dactyl.execute("set guioptions=Csb");
+    dactyl.execute("set showtabline=never");
+EOF
+nmap <Leader>g :smartLayoutClean<CR>
+
+command! smartLayoutNormal -js <<EOF
+    dactyl.execute("set guioptions=CBTbr");
+    dactyl.execute("set showtabline=always");
+EOF
+nmap <Leader>G :smartLayoutNormal<CR>
+
 command! smartReader -js <<EOF
 if (typeof __readable_by_evernote === "object") {
     dactyl.execute("emenu Tools.Clearly");
@@ -203,25 +207,12 @@ nmap <Leader>r :smartReader<CR>
 "" reload .pentadactylrc
 command! fresh -description "Reload .pentadactylrc file" source $HOME/.pentadactylrc
 
-"" set title to url
-"autocmd! LocationChange .* :set titlestring=<url>
-"" }}}
-"" {{{ Passkeys
-"" enable pass through mode on all google sites
-"autocmd LocationChange www.google.com,mail.google.com :normal! <C-z>
-
-set passkeys=
-
-" DuckDuckGo
-set passkeys+="https://duckduckgo\.com/":jkv
-
-" Gmail
-set passkeys+="https://mail\.google\.com/":jkg
-
-" Google Calendar
-set passkeys+="https://www\.google\.com/calendar":jkg12345qrcnp
-
-" Twitter
-set passkeys+="https://twitter\.com/":jkg/?.nrm
+" Yank (copy) to default clipboard with Y
+" Will not yank to default clipboard by default.
+" See:
+" Issue 719 - dactyl - Copy with 'Y' is not pasted - A Vim-like five-fingered
+" interface for Firefox and other XULRunner-based apps. - Google Project Hosting
+" https://code.google.com/p/dactyl/issues/detail?id=719#c10
+js editor.defaultRegister="+"
 "" }}}
 " vim: set ft=vim
