@@ -107,19 +107,16 @@ map -m n,v,i,c,t <C-x> <Pass>
 "" }}}
 "" {{{ Bookmarks
 "" search engines
-"silent bma -tags searchengine -title='ArchLinux AUR' http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K=%s&SeB=nd&PP=25 -k=aur
-"silent bma -tags searchengine -title='ArchLinux Wiki' http://wiki.archlinux.org/index.php?search=%s -k=archlinuxwiki
-"silent bma -tags searchengine -title='DeviantART' http://browse.deviantart.com/?qh=&section=&q=%s -k=deviantart
-"silent bma -tags searchengine -title='DuckDuckGo' https://duckduckgo.com/?q=%s -keyword duckduckgo
-"silent bma -tags searchengine -title='ThePirateBay' http://thepiratebay.org/search/%s -k=piratebay
-"silent bma -tags searchengine -title='Thesaurus' http://thesaurus.reference.com/the?q=%s -keyword=thesaurus
-"silent bma -tags searchengine -title='Youtube' http://www.youtube.com/results?search_query=%s -keyword=youtube
+"silent bma -tags searchengine -title 'ArchLinux AUR' http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K=%s&SeB=nd&PP=25 -k aur
+"silent bma -tags searchengine -title 'ArchLinux Wiki' http://wiki.archlinux.org/index.php?search=%s -k aw
+"silent bma -tags searchengine -title 'DeviantART' http://browse.deviantart.com/?qh=&section=&q=%s -k da
+"silent bma -tags searchengine -title 'DuckDuckGo' https://duckduckgo.com/?q=%s -k dd
+"silent bma -tags searchengine -title 'ThePirateBay' http://thepiratebay.org/search/%s -k pb
+"silent bma -tags searchengine -title 'Youtube' http://www.youtube.com/results?search_query=%s -k yt
 " Default Firefox Search Engines
-"silent bma -tags searchengine -title='Google Search' https://www.google.com/search?q=%s -keyword google
-"silent bma -tags searchengine -title='Twitter' https://twitter.com/search/%s -keyword twitter
-"silent bma -tags searchengine -title='Wikipedia' http://en.wikipedia.org/wiki/Special:Search?search=%s -keyword wikipedia
-"" misc
-"silent bma -title='Router' http://192.168.1.1 -k=router
+"silent bma -tags searchengine -title 'Google Search' https://www.google.com/search?q=%s -k g
+"silent bma -tags searchengine -title 'Twitter' https://twitter.com/search/%s -k t
+"silent bma -tags searchengine -title 'Wikipedia' http://en.wikipedia.org/wiki/Special:Search?search=%s -k w
 "" }}}
 "" {{{ Bookmarklet
 nmap <Leader>b :bml-
@@ -203,7 +200,7 @@ nmap <Leader>r :smartReader<CR>
 "" reload .pentadactylrc
 command! fresh -description "Reload .pentadactylrc file" source $HOME/.pentadactylrc
 "" }}}
-"{{{ PassKeys
+"" {{{ PassKeys
 set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
 set passkeys+='mail\.google\.com/tasks/canvas':<Tab><S-Tab><Return>
 set passkeys+='google\.com/reader':jkvnpbumoaAXNOVPJK?gehtl<Return>
