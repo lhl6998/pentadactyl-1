@@ -45,7 +45,7 @@ set novisualbell
 javascript dactyl.beep = function() { return false; }
 
 " don't show autocomplete list until <Tab>
-"set autocomplete=
+set autocomplete=
 
 colorscheme vimium
 
@@ -83,7 +83,7 @@ nmap X :undo<CR>
 map <Leader>/ :set hlf!<CR>
 
 " Yank selected text to clipboard
-map -modes=n Y <yank-selection>
+map -m n Y <yank-selection>
 
 " open addons manager
 nmap <Leader>a :dialog addons<CR>
@@ -94,8 +94,11 @@ nmap <Leader>p :set private!<CR>
 " display download
 nmap <Leader>d :downloads<CR>
 
-"" U list closed tabs
+" U list closed tabs
 nmap <Leader>u :undo<Space>
+
+" Exit insert mode
+imap <Leader>e <Esc>
 
 " workaround for copy paste in text boxes
 map -m n,v,i,c,t <C-a> <Pass>
@@ -107,16 +110,19 @@ map -m n,v,i,c,t <C-x> <Pass>
 "" }}}
 "" {{{ Bookmarks
 "" search engines
-"silent bma -tags searchengine -title 'ArchLinux AUR' http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K=%s&SeB=nd&PP=25 -k aur
-"silent bma -tags searchengine -title 'ArchLinux Wiki' http://wiki.archlinux.org/index.php?search=%s -k aw
-"silent bma -tags searchengine -title 'DeviantART' http://browse.deviantart.com/?qh=&section=&q=%s -k da
-"silent bma -tags searchengine -title 'DuckDuckGo' https://duckduckgo.com/?q=%s -k dd
-"silent bma -tags searchengine -title 'ThePirateBay' http://thepiratebay.org/search/%s -k pb
-"silent bma -tags searchengine -title 'Youtube' http://www.youtube.com/results?search_query=%s -k yt
+silent bma -tags searchengine -title 'Amazon' http://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended&tag=mozilla-20&sourceid=Mozilla-search -k a
+silent bma -tags searchengine -title 'ArchLinux AUR' http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K=%s&SeB=nd&PP=25 -k aur
+silent bma -tags searchengine -title 'ArchLinux Wiki' http://wiki.archlinux.org/index.php?search=%s -k aw
+silent bma -tags searchengine -title 'DeviantART' http://browse.deviantart.com/?qh=&section=&q=%s -k da
+silent bma -tags searchengine -title 'DuckDuckGo' https://duckduckgo.com/?q=%s -k dd
+silent bma -tags searchengine -title 'ThePirateBay' http://thepiratebay.se/search/%s -k pb
+silent bma -tags searchengine -title 'Wolfram Alpha' http://www.wolframalpha.com/input/?i=%s -k wa
+silent bma -tags searchengine -title 'Youtube' http://www.youtube.com/results?search_query=%s -k yt
 " Default Firefox Search Engines
-"silent bma -tags searchengine -title 'Google Search' https://www.google.com/search?q=%s -k g
-"silent bma -tags searchengine -title 'Twitter' https://twitter.com/search/%s -k t
-"silent bma -tags searchengine -title 'Wikipedia' http://en.wikipedia.org/wiki/Special:Search?search=%s -k w
+silent bma -tags searchengine -title 'Google Search' https://www.google.com/search?q=%s -k g
+silent bma -tags searchengine -title 'Google Translate' http://translate.google.com/#auto|pt|%s -k gt
+silent bma -tags searchengine -title 'Twitter' https://twitter.com/search/%s -k t
+silent bma -tags searchengine -title 'Wikipedia' http://pt.wikipedia.org/wiki/Special:Search?search=%s -k w
 "" }}}
 "" {{{ Bookmarklet
 nmap <Leader>b :bml-
@@ -139,11 +145,11 @@ command! bml-twitter -description "Bookmarklet: Share on Twitter" open javascrip
 
 "" }}}
 "" {{{ Quickmarks
-qmark d http://www.tumblr.com/dashboard
-qmark m https://mail.google.com
-qmark r https://www.google.com/reader
-qmark t https://twitter.com
-qmark y https://www.youtube.com
+"qmark d http://www.tumblr.com/dashboard
+"qmark m https://mail.google.com
+"qmark r https://www.google.com/reader
+"qmark t https://twitter.com
+"qmark y https://www.youtube.com
 "" }}}
 "" {{{ Searching
 "" from http://www.slimeden.com/2011/03/firefox/pentadactyl
@@ -159,7 +165,7 @@ command! -nargs=* siteSearch execute "tabopen <args> site:" + window.content.loc
 "js services.browserSearch.getEngines().forEach(function (e) {if(e.name!="Google") e.hidden = true})
 
 "Searching: use DuckDuckGo
-set defsearch=google
+"set defsearch=dd
 "" }}}
 "" {{{ Command
 "" smart reload
@@ -176,13 +182,13 @@ command! smartLayoutClean -js <<EOF
     dactyl.execute("set guioptions=Csb");
     dactyl.execute("set showtabline=never");
 EOF
-nmap <Leader>g :smartLayoutClean<CR>
+nmap <silent> <C-+> :smartLayoutClean<CR>
 
 command! smartLayoutNormal -js <<EOF
     dactyl.execute("set guioptions=CBTbr");
     dactyl.execute("set showtabline=always");
 EOF
-nmap <Leader>G :smartLayoutNormal<CR>
+nmap <silent> <C-=> :smartLayoutNormal<CR>
 
 command! smartReader -js <<EOF
 if (typeof __readable_by_evernote === "object") {
@@ -207,7 +213,7 @@ set passkeys+='google\.com/reader':jkvnpbumoaAXNOVPJK?gehtl<Return>
 set passkeys+='www\.google\.com/calendar':dwmxajkcnqetp?<Del>s12345<Return>
 set passkeys+='duckduckgo\.com/':\!lo<C-Return>jkh<Esc>\'v/rs1<Return>
 set passkeys+='twitter\.com':jk<Space>/.frtmn?ghrpu<Return>
-set passkeys+=www.tumblr.com:jkroae<CR>,gi
+set passkeys+='www.tumblr.com':jkroae<CR>,gi
 set passkeys+='rememberthemilk\.com/home/p':trsjkdhyucpgfinalez1234<Return>
 set passkeys+='toodledo\.com/':?fn*aitzwjklmocdgxpsheybr123456789<Esc><Return>
 set passkeys+='springpadit\.com/springpad':?hgmfntljk/c<Return>
