@@ -9,7 +9,7 @@ set guioptions=CBTbr
 "set editor=vim
 
 " Use home row letters for hints instead of numbers
-set hintkeys='sadfjklewcmpgh'
+set hintkeys='hjklasdfgyuiopqwertnmzxcvb'
 
 " only follow hints when press enter
 set followhints=1
@@ -36,7 +36,7 @@ set hlfind
 " find as you type
 set incfind
 
-"" only consider case if an upper case char is used
+" only consider case if an upper case char is used
 set findcase=smart
 
 " turn off the freakin' bell
@@ -83,7 +83,7 @@ nmap X :undo<CR>
 map <Leader>/ :set hlf!<CR>
 
 " Yank selected text to clipboard
-map -m n Y <yank-selection>
+nmap Y <yank-selection>
 
 " open addons manager
 nmap <Leader>a :dialog addons<CR>
