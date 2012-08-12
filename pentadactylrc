@@ -46,8 +46,10 @@
     map , <Leader>
     " unset maps
     nmap w <Nop>
+    nmap W <Nop>
     nmap d <Nop>
     nmap u <Nop>
+    nmap a <Nop>
     " auto add -tags option when adding bookmark
     nmap a a<Space>-tags<Space>
     " movement
@@ -65,25 +67,28 @@
     " yank selected text to clipboard
     nmap Y <yank-selection>
     " open addons manager
-    nmap <A-c> :dialog addons<CR>
+    nmap <Leader>c :dialog addons<CR>
     " private mode
-    nmap <A-p> :set private!<CR>
+    nmap <Leader>p :set private!<CR>
     " display download
-    nmap <A-d> :downloads<CR>
-    " display bookmarks
-    nmap <A-b> :tabopen chrome://browser/content/places/places.xul<CR>
+    nmap <Leader>d :downloads<CR>
     " add bookmarks
-    nmap <A-a> :dialog addbookmark<CR>
+    nmap <Leader>a :dialog addbookmark<CR>
     " history
-    nmap <A-h> :dialog history<CR>
+    nmap <Leader>h :history<CR>
     " list closed tabs
-    nmap <A-u> :undo<Space>
+    nmap <Leader>u :undo<Space>
     " tabgroup
     if config.OS.isMacOSX
-        nmap -builtin <A-g> <S-M-e>
+        nmap -builtin <Leader>g <S-M-e>
     else
-        nmap -builtin <A-g> <S-C-e>
+        nmap -builtin <Leader>g <S-C-e>
     end
+    " commands
+    nmap r :smartReload<CR>
+    nmap <silent> <Leader>w :smartLayoutClean<CR>
+    nmap <silent> <Leader>W :smartLayoutNormal<CR>
+    nmap <Leader>r :smartReader<CR>
     " bypass pentadactyl commands
     map -m n,v,i,c,t <C-a> <Pass>
     map -m n,v,i,c,t <C-c> <Pass>
@@ -152,55 +157,50 @@
 " }}}
 " {{{ Command
     " smart reload
-    command! smartReload -js <<EOF
-    if (buffer.URL.spec.indexOf('#') >= 0) {
-        dactyl.execute("reload");
-    } else {
-        dactyl.open(buffer.URL.spec);
-    }
-    EOF
-    nmap r :smartReload<CR>
+    command! smartReload
+        \:javascript <<EOF
+        \if (buffer.URL.spec.indexOf('#') >= 0)
+        \    dactyl.execute("reload");
+        \else
+        \    dactyl.open(buffer.URL.spec);
+        \EOF
 
-    command! smartLayoutClean -js <<EOF
-        dactyl.execute("set guioptions=Csb");
-        dactyl.execute("set showtabline=never");
-        dactyl.execute("set fs");
-    EOF
-    nmap <silent> <A-S-f> :smartLayoutClean<CR>
+    command! smartLayoutClean
+        \:javascript <<EOF
+        \dactyl.execute("set guioptions=Csb");
+        \dactyl.execute("set showtabline=never");
+        \dactyl.execute("set fs");
+        \EOF
 
-    command! smartLayoutNormal -js <<EOF
-        dactyl.execute("set guioptions=CBTbr");
-        dactyl.execute("set showtabline=always");
-        dactyl.execute("set fs!");
-    EOF
-    nmap <silent> <A-f> :smartLayoutNormal<CR>
+    command! smartLayoutNormal
+        \:javascript <<EOF
+        \dactyl.execute("set guioptions=CBTbr");
+        \dactyl.execute("set showtabline=always");
+        \dactyl.execute("set fs!");
+        \EOF
 
-    command! smartReader -js <<EOF
-    if (typeof __readable_by_evernote === "object") {
-        dactyl.execute("emenu Tools.Clearly");
-    } else if (typeof FirefoxReader === "object") {
-        dactyl.execute("feedkeys <M-A-z>");
-    } else if (typeof commands.get("readability") === "object") {
-        dactyl.execute("readability");
-    } else {
-        dactyl.execute("bml-readability");
-    }
-    EOF
-    nmap <Leader>r :smartReader<CR>
-
-    " reload .pentadactylrc
-    command! fresh -description "Reload .pentadactylrc file" source $HOME/.pentadactylrc
+    command! smartReader
+        \:javascript <<EOF
+        \if (typeof __readable_by_evernote === "object")
+        \   dactyl.execute("emenu Tools.Clearly");
+        \else
+        \   if (typeof commands.get("readability") === "object")
+        \       dactyl.execute("readability");
+        \else
+        \    dactyl.execute("bml-readability");
+        \EOF
 " }}}
 " {{{ PassKeys
     set passkeys+='duckduckgo.com':jkhvrsm!/<C-Enter>
     set passkeys+='facebook.com':<CR>
     set passkeys+='twitter.com':jk<Space>/.frtmn?ghrpu<Return>
     set passkeys+='www.tumblr.com':jkroae<CR>,gi
-    set passkeys+='www.google.com/voice':r
+    set passkeys+='www.google.com/voice':cm;#!IU
     set passkeys+='www.google.com/calendar':dwmxajkcnqetp?<Del>s12345<Return>
-    set passkeys+='www.google.com/reader':jAkmvr,ga,ge
+    set passkeys+='www.google.com/reader':jkAnpXoaOslSDvtmerfu12/a?<CR>,gh,gs,gS,gu
     set passkeys+='www.google.com/search':jk
-    set passkeys+='mail.google.com':jkucxarI\/,gi,gs,gt,gd,ga,gc,gb,gk,gl<CR>
+    set passkeys+='drive.google.com':jkxANTPSDFcuarvzso<Return>./d?,gn,gl,gf,gd
+    set passkeys+='mail.google.com':c/kjnpo<Return>uemxs+-!raf#lvIU[]zNqy?,gi,gs,gt,gd,ga,gc,gb,gk,gl<CR>
 
     set strictfocus='google.com':laissez-faire,'chrome:*':laissez-faire,*:moderate
 

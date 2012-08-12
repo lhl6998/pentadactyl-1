@@ -41,15 +41,3 @@ hi HintImage         opacity: .7 !important;
 hi ErrorMsg background: #a00 !important; color: #fff !important; font: 11px "Menlo" !important; padding: 2px 4px !important;
 hi WarningMsg background: #a00 !important; color: #fff !important; font: 11px "Menlo" !important; padding: 2px 4px !important;
 " }}}
-" Functions {{{
-" Add favicon to statusbar
-javascript <<EOF
-(function() {
-    var faviconPanel = document.createElement("faviconpanel");
-    faviconPanel.setAttribute("id", "favicon-panel-clone");
-    faviconPanel.appendChild(document.getElementById("identity-box"));
-    faviconPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
-    document.getElementById("status-bar").insertBefore(faviconPanel, document.getElementById("security-button"));
-})();
-EOF
-"}}}
