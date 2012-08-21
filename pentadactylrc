@@ -2,7 +2,7 @@
     " default colorscheme
     colorscheme vimium
     set titlestring=Mozilla\ Firefox
-    set guioptions=CBTbr
+    set guioptions=CBTbrm
     set showtabline=always
     " complete search engine suguest
     set complete=location,suggestion,bookmark
@@ -193,14 +193,14 @@
 " {{{ PassKeys
     set passkeys+='duckduckgo.com':jkhvrsm!/<C-Enter>
     set passkeys+='facebook.com':<CR>
-    set passkeys+='twitter.com':jk<Space>/.frtmn?ghrpu<Return>
+    set passkeys+='twitter.com':jk<Space>/.frmn?ghrpu<Return>
     set passkeys+='www.tumblr.com':jkroae<CR>,gi
     set passkeys+='www.google.com/voice':cm;!IU
-    set passkeys+='www.google.com/calendar':dwmxajkcnqetp?<Del>s12345<Return>
-    set passkeys+='www.google.com/reader':jkAnpXoaOslSDvtmerfu12/a?<CR>,gh,gs,gS,gu
+    set passkeys+='www.google.com/calendar':dwmxajkcnqep?<Del>s12345<Return>
+    set passkeys+='www.google.com/reader':jkAnpXaOslSDvmerfu12/a?<CR>,gh,gs,gS,gu
     set passkeys+='www.google.com/search':jk
-    set passkeys+='drive.google.com':jkxANTPSDFcuarvzso<Return>./d?,gn,gl,gf,gd
-    set passkeys+='mail.google.com':c/kjnpo<Return>uemxs+-!raflvIU[]zNqy?<CR>,gi,gs,gt,gd,ga,gc,gb,gk,gl
+    set passkeys+='drive.google.com':jkxANTPSDFcuarvzs<Return>./d?,gn,gl,gf,gd
+    set passkeys+='mail.google.com':c/kjnp<Return>uemxs+-!raflvIU[]zNqy?<CR>,gi,gs,gt,gd,ga,gc,gb,gk,gl
 
     set strictfocus='google.com':laissez-faire,'chrome:*':laissez-faire,*:moderate
 
