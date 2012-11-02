@@ -11,7 +11,7 @@
     " default editor
     set editor=gvim\ -f\ --remote-tab-silent-wait
     " use home row letters for hints instead of numbers
-    set hintkeys='hjklasdfgyuiopqwertnmzxcvb'
+    set hintkeys='sadfjklewcmpgh'
     " only follow hints when press enter
     set followhints=1
     " open things at new tab
