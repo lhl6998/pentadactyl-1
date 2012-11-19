@@ -1,22 +1,16 @@
-" {{{ Option
+" OPTION {{{
   " default colorscheme
   colorscheme vimium
   set titlestring=Mozilla\ Firefox
-  set guioptions=CBTbrm
+  set guioptions=CBTbr
   set showtabline=always
   set popups=tab,resized
   " complete search engine suguest
   set complete=location,suggestion,bookmark
-  " show up to 12 items in the completion list
-  set maxitems=12
-  " default editor
-  set editor=gvim\ -f\ --remote-tab-silent-wait
   " use home row letters for hints instead of numbers
   set hintkeys='sadfjklewcmpgh'
   " only follow hints when press enter
   set followhints=1
-  " open things at new tab
-  set newtab=all
   " highlight all search matches, not just the first
   set hlfind
   " find as you type
@@ -24,28 +18,19 @@
   " only consider case if an upper case char is used
   set findcase=smart
   " set wild mode to show completions as you type
-  set wildmode=list:longest,full
+  "set wildmode=list:longest,full
   " don't show autocomplete list until <Tab>
   "set autocomplete=
-  " smooth scroll setting
-  set scrollsteps=10
-  set scrolltime=300
-  " These settings prevent Pentadactyl from overwriting my preferred Firefox settings.
-  set! browser.startup.page=1
   " turn off the freakin' bell {{{
   set noerrorbells
   set novisualbell
   javascript dactyl.beep = function() { return false; }
   "}}}
   " Yank (copy) to default clipboard with Y {{{
-  " Will not yank to default clipboard by default.
-  " See:
-  " Issue 719 - dactyl - Copy with 'Y' is not pasted - A Vim-like five-fingered
-  " https://code.google.com/p/dactyl/issues/detail?id=719#c10
   js editor.defaultRegister="+"
   "}}}
 " }}}
-" {{{ Mapping
+" MAPPING {{{
   map , <Leader>
   " unset maps
   nmap w <Nop>
@@ -70,13 +55,13 @@
   " yank selected text to clipboard
   nmap Y <yank-selection>
   " open addons manager
-  nmap <Leader>c :dialog addons<CR>
+  nmap <Leader>a :dialog addons<CR>
   " private mode
   nmap <Leader>p :set private!<CR>
   " display download
-  nmap <Leader>d :downloads<CR>
+  nmap <Leader>j :downloads<CR>
   " add bookmarks
-  nmap <Leader>a :dialog addbookmark<CR>
+  nmap <Leader>d :dialog addbookmark<CR>
   " history
   nmap <Leader>h :history<CR>
   " list closed tabs
@@ -101,7 +86,7 @@
   map -m n,v,i,c,t <C-v> <Pass>
   map -m n,v,i,c,t <C-x> <Pass>
 " }}}
-" {{{ Bookmarks
+" BOOKMARKS {{{
   " search engines
   "silent bma -tags searchengine -title 'Amazon' http://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended&tag=mozilla-20&sourceid=Mozilla-search -k a
   "silent bma -tags searchengine -title 'ArchLinux AUR' http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K=%s&SeB=nd&PP=25 -k aur
@@ -116,7 +101,7 @@
   "silent bma -tags searchengine -title 'Wolfram Alpha' http://www.wolframalpha.com/input/?i=%s -k wa
   "silent bma -tags searchengine -title 'Youtube' http://www.youtube.com/results?search_query=%s -k yt
 " }}}
-" {{{ Bookmarklet
+" BOOKMARKLET {{{
   nmap <Leader>b :bml-
   nmap <Leader>s :bml-subscribe<CR>
 
@@ -135,14 +120,14 @@
   "https://dev.twitter.com/docs/share-bookmarklet
   command! bml-twitter -description "Bookmarklet: Share on Twitter" open javascript:(function(){window.twttr=window.twttr||{};var%20D=550,A=450,C=screen.height,B=screen.width,H=Math.round((B/2)-(D/2)),G=0,F=document,E;if(C>A){G=Math.round((C/2)-(A/2))}window.twttr.shareWin=window.open('http://twitter.com/share','','left='+H+',top='+G+',width='+D+',height='+A+',personalbar=0,toolbar=0,scrollbars=1,resizable=1');E=F.createElement('script');E.src='http://platform.twitter.com/bookmarklets/share.js?v=1';F.getElementsByTagName('head')[0].appendChild(E)}());
 " }}}
-" {{{ Quickmarks
+" QUICKMARKS {{{
   "qmark d http://www.tumblr.com/dashboard
   "qmark m https://mail.google.com
   "qmark r https://www.google.com/reader
   "qmark t https://twitter.com
   "qmark y https://www.youtube.com
 " }}}
-" {{{ Searching
+" SEARCHING {{{
   " from http://www.slimeden.com/2011/03/firefox/pentadactyl
   ":map t -js content.getSelection().toString()!=""?dactyl.execute(":tabopen "+ content.getSelection()):CommandExMode().open("tabopen ")
   ":map o -js content.getSelection().toString()!=""?dactyl.execute(":open "+ content.getSelection()):CommandExMode().open("open ")
@@ -158,7 +143,7 @@
   "Searching: use DuckDuckGo
   "set defsearch=ddg
 " }}}
-" {{{ Command
+" COMMAND {{{
   " smart reload
   command! smartReload
     \:javascript <<EOF
@@ -202,7 +187,7 @@
   """ NOTE: Requires Web Developer toolbar.
   command! webdev js webdeveloper_toggleToolbar();
 " }}}
-" {{{ PassKeys
+" PASSKEYS {{{
   set passkeys+='duckduckgo.com':jkhvrsm!/<C-Enter>
   set passkeys+='facebook.com':<CR>
   set passkeys+='twitter.com':jk<Space>/.frmn?ghrpu<Return>
@@ -213,8 +198,6 @@
   set passkeys+='www.google.com/search':jk
   set passkeys+='drive.google.com':jkxANTPSDFcuarvzs<Return>./d?,gn,gl,gf,gd
   set passkeys+='mail.google.com':c/kjnp<Return>uemxs+-!raflvIU[]zNqy?<CR>,gi,gs,gt,gd,ga,gc,gb,gk,gl
-
-  set strictfocus='google.com':laissez-faire,'chrome:*':laissez-faire,*:moderate
 
   "Enable Pass Through mode on all Google sites:
   "autocmd LocationChange google.com :normal! <C-z>
